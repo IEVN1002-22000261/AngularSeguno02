@@ -1,0 +1,45 @@
+<div>
+  <h1>Horóscopo Chino</h1>
+
+  <form [formGroup]="formulario">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input type="text" id="nombre" class="form-control" formControlName="nombre"/>
+
+    <label for="apat" class="form-label">Apellido Paterno</label>
+    <input type="text" id="apat" class="form-control" formControlName="apat"/>
+
+    <label for="amat" class="form-label">Apellido Materno</label>
+    <input type="text" id="amat" class="form-control" formControlName="amat"/>
+
+    <h2>Fecha de Nacimiento</h2>
+    <label for="dia">Día de nacimiento </label>
+    <input type="number" id="dia" formControlName="dia" />
+
+    <label for="mes">Mes de nacimiento </label>
+    <input type="number" id="mes" formControlName="mes" />
+
+    <label for="anio">Año de nacimiento </label>
+    <input type="number" id="anio" formControlName="anio" />
+
+    <h2>Sexo</h2>
+    <input type="radio" id="femenino" value="Femenino" formControlName="sexo" />
+    <label for="femenino">Femenino</label>
+    <input type="radio" id="masculino" value="Masculino" formControlName="sexo" />
+    <label for="masculino">Masculino</label>
+
+    <br><br>
+    <button type="button" class="btn btn-primary" (click)="calcular()">Calcular</button>
+
+    <hr>
+    <div *ngIf="mostrarResultado">
+      <h3>Resultado</h3>
+      <p>Hola {{ formulario.value.nombre }} {{ formulario.value.apat }} {{ formulario.value.amat }}</p>
+      <p>Tienes {{ edad }} años</p>
+      <p>Tu sexo es {{ formulario.value.sexo }}</p>
+      <p>Tu signo zodiacal chino es {{ signo }}</p>
+      <img [src]="imagen" [alt]="signo" width="350">
+    </div>
+  </form>
+</div>
+
+
